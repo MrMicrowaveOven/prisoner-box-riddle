@@ -117,7 +117,17 @@ This 2-loop can be any 2 of the 100 boxes.  so the number of possibilities is __
 So there are 4950 ways to have a single 2-loop.  What about 2 2-loops?  Once there's the first 2-loop, there's 98 more boxes to make the second 2-loop, so an additional __<sub>98</sub>C<sub>2</sub>__ times the number of ways to get a single 2-loop (4950):
 
 ```math
-{100! \over (100-2)!2!} * {98! \over (98-2)!2!} = {100 * 99 \over 2} * {98*97 \over 2}
+{100! \over (100-2)!2!} * {98! \over (98-2)!2!} = {100 * 99 \over 2} * {98 * 97 \over 2}
 ```
 
-Notice the pattern yet?  The number of ways to get 50 2-loops is <sub>100</sub>C<sub>2</sub> x <sub>98</sub>C<sub>2</sub> x <sub>96</sub>C<sub>2</sub> x ... x <sub>2</sub>C<sub>2</sub>
+Notice the pattern yet?  The number of ways to get 50 2-loops is <sub>100</sub>C<sub>2</sub> x <sub>98</sub>C<sub>2</sub> x <sub>96</sub>C<sub>2</sub> x ... x <sub>2</sub>C<sub>2</sub>, or:
+
+```math
+{100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {2*1 \over 2} = {100! \over 2^{50}}
+```
+
+So what's the sum of all of these?
+
+```math
+{100 * 99 \over 2} + ({100 * 99 \over 2} * {98 * 97 \over 2}) + ({100 * 99 \over 2} * {98 * 97 \over 2} * {96 * 95 \over 2}) + ... + {100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {4*3 \over 2} + {100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {2*1 \over 2}
+```
