@@ -2,7 +2,7 @@ def run_experiment(num_boxes)
     boxes = (0...num_boxes).to_a
     boxes.shuffle!
     longest_loop_length = 0
-    99.times do |prisoner_number|
+    100.times do |prisoner_number|
         current_loop_length = 0
         initial_box_index = prisoner_number
         current_box_index = prisoner_number

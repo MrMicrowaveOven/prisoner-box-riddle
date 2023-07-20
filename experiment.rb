@@ -1,17 +1,46 @@
+require_relative 'prisoner.rb'
+require_relative 'room.rb'
+
 class Experiment
     attr_reader :prisoners, :room
-    def initiate(num_boxes)
-        @prisoners = (1..100).map {|n| Prisoner.new(n)}
-        @room = Room.new
+
+    def self.run_n_times(n, num_boxes)
+        results = []
+        n.times do |n|
+            e = Experiment.new(num_boxes)
+            results.push(e.run)
+        end
+        # Report success probability
+        results.count(true).to_f / results.length
+    end
+    
+    def initialize(num_boxes)
+        @prisoners = (1..num_boxes).map {|n| Prisoner.new(n)}
+        @room = Room.new(num_boxes)
+        @loop_lengths = []
     end
 
     def run
         @prisoners.each do |prisoner|
             loop = send_prisoner_in(prisoner)
+            @loop_lengths.push(loop.length)
         end
+        @loop_lengths.max <= @prisoners.length / 2
+    end
+
+    private
+
+    def send_prisoner_in(prisoner)
+        boxes = []
+        initial_box_index = prisoner.number
+        current_box_index = prisoner.number
+
+        until initial_box_index == current_box_index && !boxes.empty?
+            boxes.push(current_box_index)
+            current_box_index = room.boxes[current_box_index - 1].value
+        end
+        boxes
     end
 end
 
-
-
-# p run_experiment_n_times(100000)
+p Experiment.run_n_times(100000, 50)

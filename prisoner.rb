@@ -1,6 +1,7 @@
 class Prisoner
     attr_reader :number
-    def initiate(number)
+
+    def initialize(number)
         @number = number
     end
 end

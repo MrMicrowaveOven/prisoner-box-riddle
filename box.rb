@@ -1,7 +1,6 @@
 class Box
-    attr_reader :value, :label
-    def initiate(n, i)
+    attr_reader :value
+    def initialize(n)
         @value = n
-        @label = i
     end
 end
