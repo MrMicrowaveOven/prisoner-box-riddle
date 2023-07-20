@@ -129,5 +129,5 @@ Notice the pattern yet?  The number of ways to get 50 2-loops is <sub>100</sub>C
 So what's the sum of all of these?
 
 ```math
-{100 * 99 \over 2} + ({100 * 99 \over 2} * {98 * 97 \over 2}) + ({100 * 99 \over 2} * {98 * 97 \over 2} * {96 * 95 \over 2}) + ... + {100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {4*3 \over 2} + {100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {2*1 \over 2}
+{100 * 99 \over 2} + ({100 * 99 \over 2} * {98 * 97 \over 2}) + ({100 * 99 \over 2} * {98 * 97 \over 2} * {96 * 95 \over 2}) + ... \\ \\ + {100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {4*3 \over 2} + {100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {2*1 \over 2}
 ```
