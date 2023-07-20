@@ -98,7 +98,10 @@ To get the probability that all loops are shorter than 51, we'll go through the 
 
 #### 1 or shorter
 
-Well, there is only one way for all loops to be 1 or shorter.  All boxes must contain their own number.  Easy.  Probability is: $$ {1 \over 100!} $$
+Well, there is only one way for all loops to be 1 or shorter.  All boxes must contain their own number.  Easy.  Probability is:
+```math
+{1 \over 100!}
+```
 
 #### 2 or shorter
 
@@ -106,8 +109,15 @@ This gets a little more complicated.
 
 For all loops to be 2 or shorter, we need to calculate the probability of one 2-loop (and 98 1-loops).
 
-This 2-loop can be any 2 of the 100 boxes.  so the number of possibilities is __<sub>100</sub>C<sub>2</sub>__, or: $$ {100! \over (100-2)!2!} = {100 * 99 * 98! \over 98!2!} = {100 * 99 \over 2} = {50 * 99} = 4950$$
+This 2-loop can be any 2 of the 100 boxes.  so the number of possibilities is __<sub>100</sub>C<sub>2</sub>__, or:
+```math
+{100! \over (100-2)!2!} = {100 * 99 * 98! \over 98!2!} = {100 * 99 \over 2} = {50 * 99} = 4950
+```
 
-So there are 4950 ways to have a single 2-loop.  What about 2 2-loops?  Once there's the first 2-loop, there's 98 more boxes to make the second 2-loop, so an additional __<sub>98</sub>C<sub>2</sub>__ times the number of ways to get a single 2-loop (4950): $$ {100! \over (100-2)!2!} * {98! \over (98-2)!2!} = {100 * 99 \over 2} * {98*97 \over 2} $$
+So there are 4950 ways to have a single 2-loop.  What about 2 2-loops?  Once there's the first 2-loop, there's 98 more boxes to make the second 2-loop, so an additional __<sub>98</sub>C<sub>2</sub>__ times the number of ways to get a single 2-loop (4950):
+
+```math
+{100! \over (100-2)!2!} * {98! \over (98-2)!2!} = {100 * 99 \over 2} * {98*97 \over 2}
+```
 
 Notice the pattern yet?  The number of ways to get 50 2-loops is <sub>100</sub>C<sub>2</sub> x <sub>98</sub>C<sub>2</sub> x <sub>96</sub>C<sub>2</sub> x ... x <sub>2</sub>C<sub>2</sub>
