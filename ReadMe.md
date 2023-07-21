@@ -116,15 +116,15 @@ A Prisoner has a Number, which is the number that they are trying to find in a B
 
 ### Experiment
 
-The Experiment covers everything.  It's where the room exists, with Boxes inside of them, and also where the Prisoners live.
+The Experiment covers everything.  It's where the Room exists, with Boxes inside of them, and also where the Prisoners live.
 
 When created, the Experiment generates 100 Prisoners as well as a Room (which comes with 100 Boxes).  When `run` is called the Experiment sends each Prisoner into the Room to open Boxes, using the above strategy.  It records how many Boxes the Prisoner had to open to find their number.
 
-If any Prisoner has to check more than 50 Boxes to find their number, then the Prisoners `fail` to be freed from the prison.  If all of them get to their Box by opening 50 or fewer boxes, they `succeed`.
+If any Prisoner has to check more than 50 Boxes to find their number, then the Prisoners `fail` to be freed from the prison.  If all of them get to their Box by opening 50 or fewer Boxes, they `succeed`.
 
 Experiment can be run many times, using as many Boxes as desired.  `Experiment.run_n_times(num_times, num_boxes)` will return the success rate of the Prisoners after that many runs.
 
-When I ran the Experiment 1,000 times with 100 boxes, sure enough the success rate of the Prisoners was 30.56%.  Looks like they were a bit unlucky.  After increasing to 1,000,000 Experiments, they had a success rate of 31.18, closer to the average.
+When I ran the Experiment 1,000 times with 100 Boxes, sure enough the success rate of the Prisoners was 30.56%.  Looks like they were a bit unlucky.  After increasing to 1,000,000 Experiments, they had a success rate of 31.18, closer to the average.
 
 So yes, this solution is correct.  Using the "loop" strategy prisoners have, on average, a 31% chance of surviving.  I'm still having a hard time wrapping my head around that.
 
