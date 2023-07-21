@@ -126,7 +126,7 @@ Experiment can be run many times, using as many Boxes as desired.  `Experiment.r
 
 When I ran the Experiment 1,000 times with 100 Boxes, sure enough the success rate of the Prisoners was 30.56%.  Looks like they were a bit unlucky.  After increasing to 1,000,000 Experiments, they had a success rate of 31.18, closer to the average.
 
-So yes, this solution is correct.  Using the "loop" strategy prisoners have, on average, a 31% chance of surviving.  I'm still having a hard time wrapping my head around that.
+So yes, this solution is correct.  Using the "loop" strategy, prisoners have a 31% chance of surviving.  I'm still having a hard time wrapping my head around that.
 
 Something very fun to think about: I increased the number of Boxes to 1,000,000, and the Prisoners STILL survived 30.7% of the time using the strategy.  Compared to the 2<sup>1,000,000</sup> chance they had of surviving otherwise (not even going to try to display that number).
 
