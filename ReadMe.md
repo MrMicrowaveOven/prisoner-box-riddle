@@ -100,13 +100,15 @@ I'm sure there's a quick and codey way to solve this problem, but I'm deciding t
 
 ### Box
 
-A Box has both a Label (the number on the box) and a Value (what's inside the box).  I later removed Label, since it can just be the location of the box in the list.
+A Box has both a Label (the number on the Box) and a Value (what's inside the Box).
+
+Value is stored directly on the Box, while Label is the index of the Box in the list of Boxes.
 
 ### Room
 
-The Room has n boxes in it (100 for this specific problem).  When the Room initializes, it creates 100 boxes and assigns them a Label and Value, ensuring that no numbers are repeated.
+The Room has n Boxes in it (100 for this specific problem).  When the Room initializes, it creates 100 Boxes and assigns them a Label and Value, ensuring that no numbers are repeated.
 
-Since it stores the boxes as an array, I just used the index of the box in the array as a Label.  Makes it run faster.
+Since it stores the Boxes as an array (list), I just used the index of the Box in the array as a Label.  Makes it run much faster.
 
 ### Prisoner
 
@@ -114,17 +116,17 @@ A Prisoner has a Number, which is the number that they are trying to find in a B
 
 ### Experiment
 
-The Experiment covers everything.  It's where the room exists, with boxes inside of them, and also where the Prisoners live.
+The Experiment covers everything.  It's where the room exists, with Boxes inside of them, and also where the Prisoners live.
 
-When created, the Experiment generates 100 Prisoners as well as a Room (which comes with 100 boxes).  When `run` is called the Experiment sends each Prisoner in to open Boxes.  It records how many Boxes the Prisoner had to open to find their number.
+When created, the Experiment generates 100 Prisoners as well as a Room (which comes with 100 Boxes).  When `run` is called the Experiment sends each Prisoner into the Room to open Boxes, using the above strategy.  It records how many Boxes the Prisoner had to open to find their number.
 
-If any Prisoner has to check more than 50 Boxes to find their number, then the Prisoners fail to be freed from the prison.
+If any Prisoner has to check more than 50 Boxes to find their number, then the Prisoners `fail` to be freed from the prison.  If all of them get to their Box by opening 50 or fewer boxes, they `succeed`.
 
-Experiment can be run many times, using as many Boxes as desired.  `Experiment.run_n_times(num_times, num_boxes)` will return the success rate of the Prisoners.
+Experiment can be run many times, using as many Boxes as desired.  `Experiment.run_n_times(num_times, num_boxes)` will return the success rate of the Prisoners after that many runs.
 
 When I ran the Experiment 1,000 times with 100 boxes, sure enough the success rate of the Prisoners was 30.56%.  Looks like they were a bit unlucky.  After increasing to 1,000,000 Experiments, they had a success rate of 31.18, closer to the average.
 
-So yes, this solution is correct.  Using the "loop" strategy, prisoners have, on average, a 31% chance of surviving.  I'm still having a hard time wrapping my head around that.
+So yes, this solution is correct.  Using the "loop" strategy prisoners have, on average, a 31% chance of surviving.  I'm still having a hard time wrapping my head around that.
 
 Something very fun to think about: I increased the number of Boxes to 1,000,000, and the Prisoners STILL survived 30.7% of the time using the strategy.  Compared to the 2<sup>1,000,000</sup> chance they had of surviving otherwise (not even going to try to display that number).
 

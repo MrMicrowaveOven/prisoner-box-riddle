@@ -44,4 +44,4 @@ class Experiment
     end
 end
 
-p Experiment.run_n_times(100000, 50)
+p Experiment.run_n_times(1000, 100)
