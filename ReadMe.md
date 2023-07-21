@@ -1,11 +1,15 @@
 # The Prisoner-Box Principle
 
+## Quickstart
+
+To run the experiment, run `ruby experiment.rb`.  You can adjust the parameters of the experiment at very bottom of `experiment.rb` (the default runs the experiment 1000 times with 100 boxes).
+
 ## The Riddle
 
 Let's say we have 100 prisoners, each numbered 1 to 100.
 
 | | | | | | | | | | |
-|---|---|---|---|---|---|---|---|---|---|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |1🧍|2🧍|3🧍|4🧍|5🧍|6🧍|7🧍|8🧍|9🧍|10🧍|
 |11🧍|12🧍|13🧍|14🧍|15🧍|16🧍|17🧍|18🧍|19🧍|20🧍|
 |21🧍|22🧍|23🧍|24🧍|25🧍|26🧍|27🧍|28🧍|29🧍|30🧍|
@@ -20,7 +24,7 @@ Let's say we have 100 prisoners, each numbered 1 to 100.
 In addition, there is a room with 100 boxes, labeled 1 to 100.
 
 | | | | | | | | | | |
-|---|---|---|---|---|---|---|---|---|---|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |1📦|2📦|3📦|4📦|5📦|6📦|7📦|8📦|9📦|10📦|
 |11📦|12📦|13📦|14📦|15📦|16📦|17📦|18📦|19📦|20📦|
 |21📦|22📦|23📦|24📦|25📦|26📦|27📦|28📦|29📦|30📦|
@@ -32,10 +36,10 @@ In addition, there is a room with 100 boxes, labeled 1 to 100.
 |81📦|82📦|83📦|84📦|85📦|86📦|87📦|88📦|89📦|90📦|
 |91📦|92📦|93📦|94📦|95📦|96📦|97📦|98📦|99📦|100📦|
 
-Inside each box is a note with a random number inside it, 1 to 100.
+Inside each box is a note with a random number in it, 1 to 100.
 
 | | | | | | | | | | |
-|---|---|---|---|---|---|---|---|---|---|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |1📦(34)|2📦(79)|3📦(25)|4📦(82)|5📦(83)|6📦(38)|7📦(69)|8📦(87)|9📦(47)|10📦(81)|
 |11📦(31)|12📦(3)|13📦(50)|14📦(18)|15📦(52)|16📦(9)|17📦(27)|18📦(63)|19📦(32)|20📦(6)|
 |21📦(55)|22📦(30)|23📦(45)|24📦(4)|25📦(37)|26📦(36)|27📦(96)|28📦(7)|29📦(5)|30📦(57)|
@@ -55,19 +59,21 @@ They may not mark the boxes.  No one can see what the previous prisoner has look
 
 ## The Ridiculous Probability
 
-If every prisoner opens 50 boxes randomly, they each have a 50% chance of succeeding.  Hence, for 100 prisoners, there is a 0.5<sup>100</sup> chance of all of them going free.  That is a very very small chance, 1 in one nonillion (1,267,650,600,228,229,401,496,703,205,376).  For scale, there are about 7.5 sextillion grains of sand on Earth, so 1 billion times that.
+If every prisoner opens 50 boxes randomly, they each have a 50% chance of succeeding.  Hence, for 100 prisoners, there is a 0.5<sup>100</sup> chance of all of them going free.  That is a very very small chance, 1 in one nonillion (1,267,650,600,228,229,401,496,703,205,376).  For scale, there are about 7.5 sextillion grains of sand on Earth.
 
-In addition if they don't strategize at all, that probability actually decreases.  For example if 51 prisoners pick boxes 1-50, their chances of them going free go to zero.
+So picture needing to select the correct grain of sand out of all of the sand on the planet, but 1 billion times less likely.  They're all going to die.
+
+In addition if they don't strategize at all, that probability actually decreases.  For example if 51 prisoners pick boxes 1-50, their chances of them going free are reduced to zero.
 
 ## Weird Solution
 
-Is there a way to improve their chances?  Believe it or not, there is a simple way to increase their probablity.  By a factor of hundreds of octillions.  If they use the right strategy, their probabilty of going free increases to __31%__.
+Is there a way to improve their chances?  Believe it or not, there is a simple way to increase their probablity dramatically.  Very dramatically.  By a factor of hundreds of octillions.  In fact, if they use the right strategy, their probabilty of going free increases to __31%__.
 
 Sounds unbelieveable right?  Here's the strategy:
 
 Prisoner #1 picks Box #1.  If it doesn't have a 1 inside of it (say it has #34, like our example above).  Prisoner #1 will pick Box #34 next.  If Box #34 doesn't have a 1 inside of it (say it has 91), Prisoner #1 will pick Box #91 next.  Prisoner #1 continues until either he finds the box with a 1 inside of it, or he's opened 50 boxes and everyone dies.
 
-Prisoner #2 picks Box #2 and follows the same pattern.  And so on with all of the prisoners.  If every prisoner does this, they have a __31%__ chance of surviving.  Why does this improve the probability?
+Prisoner #2 picks Box #2 and follows the same pattern.  And so on with all of the prisoners.  If every prisoner does this, they have a __31%__ chance of surviving.  That's absurd.  Why does this improve the probability?
 
 ## Why does this work?
 
@@ -80,9 +86,52 @@ Prisoners #90 will be in the same loop:
 
 Boxes #80, #28, #32, and #32 will be in the same loop.  It will take all of them 6 boxes to find the box with their number in it.
 
-So if all "loops" happen to be shorter than 51 boxes, then all prisoners will go free.  But what is the probability of that?
+So if all "loops" happen to be shorter than 51 boxes, then all prisoners will go free.  But what is the probability of that?  I'll spare you the math, but it's apparently around 31%
 
-## Their Best Chance (you can skip this part if you don't love math)
+## How do we know this is actually true?
+
+That's what this app is going to find out!  Let's simulate this very experiment, and see how often the prisoners are set free!
+
+# The App
+
+I'm sure there's a quick and codey way to solve this problem, but I'm deciding to do a class-based solution, with metaphorical naming principles.
+
+## Classes
+
+### Box
+
+A Box has both a Label (the number on the box) and a Value (what's inside the box).  I later removed Label, since it can just be the location of the box in the list.
+
+### Room
+
+The Room has n boxes in it (100 for this specific problem).  When the Room initializes, it creates 100 boxes and assigns them a Label and Value, ensuring that no numbers are repeated.
+
+Since it stores the boxes as an array, I just used the index of the box in the array as a Label.  Makes it run faster.
+
+### Prisoner
+
+A Prisoner has a Number, which is the number that they are trying to find in a Box.
+
+### Experiment
+
+The Experiment covers everything.  It's where the room exists, with boxes inside of them, and also where the Prisoners live.
+
+When created, the Experiment generates 100 Prisoners as well as a Room (which comes with 100 boxes).  When `run` is called the Experiment sends each Prisoner in to open Boxes.  It records how many Boxes the Prisoner had to open to find their number.
+
+If any Prisoner has to check more than 50 Boxes to find their number, then the Prisoners fail to be freed from the prison.
+
+Experiment can be run many times, using as many Boxes as desired.  `Experiment.run_n_times(num_times, num_boxes)` will return the success rate of the Prisoners.
+
+When I ran the Experiment 1,000 times with 100 boxes, sure enough the success rate of the Prisoners was 30.56%.  Looks like they were a bit unlucky.  After increasing to 1,000,000 Experiments, they had a success rate of 31.18, closer to the average.
+
+So yes, this solution is correct.  Using the "loop" strategy, prisoners have, on average, a 31% chance of surviving.  I'm still having a hard time wrapping my head around that.
+
+Something very fun to think about: I increased the number of Boxes to 1,000,000, and the Prisoners STILL survived 30.7% of the time using the strategy.  Compared to the 2<sup>1,000,000</sup> chance they had of surviving otherwise (not even going to try to display that number).
+
+## The Math
+
+Work in progress!  I'm sure there's a solution online, but I'm still trying to figure it out on my own.
+<!-- ## Their Best Chance (you can skip this part if you don't love math)
 
 ### How many combinations are there?
 
@@ -137,4 +186,4 @@ So what's the sum of all of these?
 ```
 ```math
 + {100 * 99 \over 2} * {98*97 \over 2} * {96*95 \over 2} * ... * {2*1 \over 2}
-```
+``` -->

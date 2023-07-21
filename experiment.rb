@@ -4,9 +4,10 @@ require_relative 'room.rb'
 class Experiment
     attr_reader :prisoners, :room
 
-    def self.run_n_times(n, num_boxes)
+    def self.run_n_times(n = 1000, num_boxes = 100)
         results = []
-        n.times do |n|
+        n.times do |i|
+            p n - i
             e = Experiment.new(num_boxes)
             results.push(e.run)
         end
