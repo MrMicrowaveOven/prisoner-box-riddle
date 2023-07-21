@@ -63,7 +63,7 @@ If every prisoner opens 50 boxes randomly, they each have a 50% chance of succee
 
 So picture needing to select the correct grain of sand out of all of the sand on the planet, but 1 billion times less likely.  They're all going to die.
 
-In addition if they don't strategize at all, that probability actually decreases.  For example if 51 prisoners pick boxes 1-50, their chances of them going free are reduced to zero.
+In addition if they don't strategize at all, that probability actually decreases.  For example if 51 prisoners pick boxes 1-50, their chances of them going free are reduced to zero since at least 1 of the 51 will not have a box in boxes 1-50.
 
 ## Weird Solution
 
