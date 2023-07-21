@@ -53,7 +53,7 @@ Inside each box is a note with a random number in it, 1 to 100.
 
 The warden of the prison has made a deal with the 100 prisoners.  They may converse with each other as long as they like to make a plan.  Then they will one-by-one enter the room with the 100 boxes.
 
-Each prisoner may open 50 boxes.  If a prisoner opens a box with their Prisoner Number inside, they "succeed".  If every single prisoner succeeds, they all go free.  Otherwise they are all executed.
+Each prisoner may open 50 boxes.  If a prisoner opens a box with their Prisoner Number inside, they "succeed".  Either way, they then leave the room through another door, all boxes are closed, and the next prisoner takes his turn.  After the last prisoner, if every prisoner has succeeded at finding their box, they all go free.  Otherwise they are all executed.
 
 They may not mark the boxes.  No one can see what the previous prisoner has looked at.  They cannot communicate with one another at all once they have entered the room of boxes.
 
