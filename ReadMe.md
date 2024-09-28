@@ -73,7 +73,7 @@ Sounds unbelieveable right?  Here's the strategy:
 
 Prisoner #1 picks Box #1.  If it doesn't have a 1 inside of it (say it has #34, like our example above).  Prisoner #1 will pick Box #34 next.  If Box #34 doesn't have a 1 inside of it (say it has 91), Prisoner #1 will pick Box #91 next.  Prisoner #1 continues until either he finds the box with a 1 inside of it, or he's opened 50 boxes and everyone dies.
 
-Prisoner #2 picks Box #2 and follows the same pattern.  And so on with all of the prisoners.  If every prisoner does this, they have a __31%__ chance of surviving.  That's absurd.  Why does this improve the probability?
+Prisoner #2 picks Box #2 and follows the same pattern (checking Box #72, #78, ...).  And so on with all of the prisoners.  If every prisoner does this, they have a __31%__ chance of surviving.  That's absurd.  Why does this improve the probability?
 
 ## Why does this work?
 
@@ -81,7 +81,7 @@ The simple answer is: It divides the 100 boxes into "loops".  For example, Priso
 
 10 &rarr; 90 &rarr; 80 &rarr; 28 &rarr; 32 &rarr; 62
 
-Prisoners #90 will be in the same loop:
+Prisoner #90 will be in the same loop:
 90 &rarr; 80 &rarr; 28 &rarr; 32 &rarr; 62 &rarr; 10
 
 Boxes #80, #28, #32, and #32 will be in the same loop.  It will take all of them 6 boxes to find the box with their number in it.
@@ -118,7 +118,7 @@ A Prisoner has a Number, which is the number that they are trying to find in a B
 
 The Experiment covers everything.  It's where the Room exists, with Boxes inside of them, and also where the Prisoners live.
 
-When created, the Experiment generates 100 Prisoners as well as a Room (which comes with 100 Boxes).  When `run` is called the Experiment sends each Prisoner into the Room to open Boxes, using the above strategy.  It records how many Boxes the Prisoner had to open to find their number.
+When created, the Experiment generates 100 Prisoners as well as a Room (which comes with 100 Boxes).  When `run` is called, the Experiment sends each Prisoner into the Room to open Boxes using the above strategy.  It records how many Boxes the Prisoner had to open to find their number.
 
 If any Prisoner has to check more than 50 Boxes to find their number, then the Prisoners `fail` to be freed from the prison.  If all of them get to their Box by opening 50 or fewer Boxes, they `succeed`.
 
